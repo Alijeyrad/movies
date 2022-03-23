@@ -1,4 +1,3 @@
-/*
 var boxOfficeList;
 function getBoxOffice() {
   date = new Date();
@@ -224,7 +223,7 @@ function getBoxOffice() {
       </button>
     </div>`;
     })
-    .catch(error => document.getElementById('boxCarousel').innerHTML = '<h4 style="text-align:center;">Sorry this section is not working right now</h4>');
+    .catch(error => document.getElementById('boxCarousel').innerHTML = '<h4 style="text-align:center;">Sorry this section is not working right now!</h4>');
 }
 
 var imageUrl = '';
@@ -240,13 +239,67 @@ function getPosters(item) {
     .then(json => {
       imageUrl = json.results[0].image;
     })
-}*/
+}
 
 // next section: show serach results
 
-document.getElementById('boxCarousel').innerHTML = '<h4 style="text-align:center;">Sorry this section is not working right now</h4>';
 
-function searchMovies(event) {
-  event.preventDefault();
+var search;
+async function searchMovies(event) {
+  title = event.composedPath()[2].children[0].children[0].value;
+  year = event.composedPath()[2].children[1].children[0].value;
+  if (title == '') {
+    document.getElementById('noTitle').style.display = 'block';
+    return;
+  } else {
+    await fetchMovie(title, year);
+    if (search.Error) {
+      document.getElementById('container').innerHTML = '<h4 style="text-align:center;">No movies found, Try again</h4>'
+    } else {
+      if (search.Ratings.length !== 0) {
+        var rating = search.Ratings[0].Value;
+      } else {
+        var rating = '';
+      }
+      document.getElementById('searchCard').innerHTML = 
+        `<div class="col-lg-12 gy-4">
+        <div class="card mb-3" style="max-width: 700px;">
+          <div class="row g-0">
+            <div class="col-md-4" style="text-align:center;">
+              <img src="${search.Poster}" class="img-fluid rounded-start" alt="${search.Title}">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title"><b>${search.Title}</b> <p class="card-text text-muted" id="imdb" style="display:inline;padding-left:10px;"><i class="fa fa-brands fa-imdb"></i>${rating}</p></h5>
+                <p class="card-text"><b>Released</b>: ${search.Released}</p>
+                <p class="card-text"><b>Runtime</b>: ${search.Runtime}</p>
+                <p class="card-text"><b>Genre</b>: ${search.Genre}</p>
+                <p class="card-text"><b>Director</b>: ${search.Director}</p>
+                <p class="card-text"><b>Actors</b>: ${search.Actors}</p>
+                <p class="card-text"><b>BoxOffice</b>: ${search.BoxOffice}</p>
+                <p class="card-text"><b>Plot</b>: ${search.Plot}</p>
+                <p class="card-text text-muted"><a target="_blank" href="https://www.imdb.com/title/${search.imdbID}">See it's page on IMDB</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>`
+    }
+  }
+
   
+}
+
+async function fetchMovie(title, year) {
+  return fetch(`https://www.omdbapi.com/?apikey=43a2f087&t=${title}&y=${year}`)
+    .then(response => {
+      if (response.ok) {
+        return response.json();
+      } else {
+        search = {Error: 'Movie not found!'};
+      }
+    })
+    .then(json => {
+      search = json;
+    });
 }

@@ -10,7 +10,7 @@
   integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" 
-  integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <!-- My Styles -->
   <link rel="stylesheet" href="./movies.css">
 </head>
@@ -19,16 +19,17 @@
   <h1>Discover Movies</h1>
   <div class="search">
     <div class="container">
-      <form action="#" onsubmit="searchMovies(event)">
+      <form action="#" onsubmit="() => {return false}">
         <div class="row">
           <div class="col-sm-4">
             <input class="form-control form-control-lg" type="text" placeholder="Title">
+            <small id="noTitle" style="color:rgba(244, 40, 40, 0.89);display:none;margin-bottom:5px;">* title is needed</small>
           </div>
           <div class="col-sm-4">
             <input class="form-control form-control-lg" type="text" placeholder="Year">
           </div>
           <div class="col-sm-4" style="max-width: 95px;">
-            <button type="button" class="btn btn-lg btn-dark">
+            <button type="button" class="btn btn-lg btn-dark" onclick="searchMovies(event)">
               Search
             </button>
           </div>
@@ -45,46 +46,13 @@
   </div>
 
   <!-- Search Results -->
-  <h1>Search Results</h1>
-  <!-- a result card -->
+  <h2>Search Results</h2>
+  <!-- a result card container -->
   <div class="container" id="container">
-    <div class="row gx-5">
-  
-      <div class="col-lg-6 gy-4">
-        <div class="card mb-3" style="max-width: 700px;">
-          <div class="row g-0">
-            <div class="col-md-4" style="text-align:center;">
-              <img src="https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_SX300.jpg" class="img-fluid rounded-start" alt="...">
-            </div>
-            <div class="col-md-8">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-6 gy-4">
-        <div class="card mb-3" style="max-width: 700px;">
-          <div class="row g-0">
-            <div class="col-md-4" style="text-align:center;">
-              <img src="https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_SX300.jpg" class="img-fluid rounded-start" alt="...">
-            </div>
-            <div class="col-md-8">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-  
+    <div class="row gx-5" id="searchCard">
+      <!-- single card -->
+      
     </div>
-    
   </div>
 
   <!-- Bootstrap JS -->
