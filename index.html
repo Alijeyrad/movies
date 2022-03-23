@@ -14,7 +14,8 @@
   <!-- My Styles -->
   <link rel="stylesheet" href="./movies.css">
 </head>
-<body>
+<body onload="getBoxOffice()">
+  <!-- Search Section -->
   <h1>Discover Movies</h1>
   <div class="search">
     <div class="container">
@@ -32,11 +33,18 @@
             </button>
           </div>
         </div>
-        
       </form>
     </div>
   </div>
+  <!-- Box office -->
+  <br>
+  <h1>Box office Top 10</h1>
+  <div class="container" id="boxCarousel">
+
+  <!-- carousel -->
+    
   
+  </div>
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
