@@ -19,7 +19,7 @@
   <h1>Discover Movies</h1>
   <div class="search">
     <div class="container">
-      <form action="#">
+      <form action="#" onsubmit="searchMovies(event)">
         <div class="row">
           <div class="col-sm-4">
             <input class="form-control form-control-lg" type="text" placeholder="Title">
@@ -40,10 +40,51 @@
   <br>
   <h1>Box office Top 10</h1>
   <div class="container" id="boxCarousel">
-
   <!-- carousel -->
     
+  </div>
+
+  <!-- Search Results -->
+  <h1>Search Results</h1>
+  <!-- a result card -->
+  <div class="container" id="container">
+    <div class="row gx-5">
   
+      <div class="col-lg-6 gy-4">
+        <div class="card mb-3" style="max-width: 700px;">
+          <div class="row g-0">
+            <div class="col-md-4" style="text-align:center;">
+              <img src="https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_SX300.jpg" class="img-fluid rounded-start" alt="...">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 gy-4">
+        <div class="card mb-3" style="max-width: 700px;">
+          <div class="row g-0">
+            <div class="col-md-4" style="text-align:center;">
+              <img src="https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_SX300.jpg" class="img-fluid rounded-start" alt="...">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+    </div>
+    
   </div>
 
   <!-- Bootstrap JS -->

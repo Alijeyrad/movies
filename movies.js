@@ -1,3 +1,4 @@
+/*
 var boxOfficeList;
 function getBoxOffice() {
   date = new Date();
@@ -239,4 +240,13 @@ function getPosters(item) {
     .then(json => {
       imageUrl = json.results[0].image;
     })
+}*/
+
+// next section: show serach results
+
+document.getElementById('boxCarousel').innerHTML = '<h4 style="text-align:center;">Sorry this section is not working right now</h4>';
+
+function searchMovies(event) {
+  event.preventDefault();
+  
 }

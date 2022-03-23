@@ -45,3 +45,16 @@ h1 {
 .carousel-control-next-icon, .carousel-control-prev-icon {
   background-color: black;
 }
+
+#searchResultCard {
+  max-width: 300px;
+  margin: 10px;
+}
+
+#container {
+  flex-direction: row;
+}
+
+.row>* {
+  padding-left: 0 !important;
+}
