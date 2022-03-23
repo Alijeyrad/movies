@@ -21,14 +21,14 @@
     <div class="container">
       <form action="#" onsubmit="() => {return false}">
         <div class="row">
-          <div class="col-sm-4">
+          <div id="input" class="col-sm-4">
             <input class="form-control form-control-lg" type="text" placeholder="Title">
             <small id="noTitle" style="color:rgba(244, 40, 40, 0.89);display:none;margin-bottom:5px;">* title is needed</small>
           </div>
-          <div class="col-sm-4">
+          <div id="input" class="col-sm-4">
             <input class="form-control form-control-lg" type="text" placeholder="Year">
           </div>
-          <div class="col-sm-4" style="max-width: 95px;">
+          <div id="input" class="col-sm-4" style="max-width: 95px;">
             <button type="button" class="btn btn-lg btn-dark" onclick="searchMovies(event)">
               Search
             </button>
@@ -46,7 +46,7 @@
   </div>
 
   <!-- Search Results -->
-  <h2>Search Results</h2>
+  <h2 id="searchResults">Search Results</h2>
   <!-- a result card container -->
   <div class="container" id="container">
     <div class="row gx-5" id="searchCard">
